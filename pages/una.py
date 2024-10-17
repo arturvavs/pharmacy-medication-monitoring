@@ -21,11 +21,43 @@ layout = html.Div(children=[
         ], className='cabecalho'))
     ),
     
-    dbc.Row([
-        # Coluna que contém o Card 6º NORTE e a tabela
+    dbc.Row([#COLUNA 5º NORTE
         dbc.Col(
             html.Div([
-                # Card 6º NORTE
+                dbc.Card([
+                    dbc.CardBody([
+                        html.H1('5º NORTE', className='titulo-card'),
+                        html.Div(id='lotes-5norte', className='dados-card')
+                    ])
+                ], className='card'),
+
+                html.Div([
+                    AgGrid(
+                        id='tabela-5norte',
+                        columnDefs=[
+                            {'headerName': 'LEITO', 'field': 'DS_LEITO', 'width': '50px','headerClass': 'ag-header-cell-label','suppressStickyLabel': True},
+                            {'headerName': 'LOTE', 'field': 'NR_SEQUENCIA', 'width': '50px',},
+                            {'headerName': 'HORARIO', 'field': 'DT_PRIM_HORARIO', 'width': '60px',},
+                            {'headerName': 'ATB', 'field': 'IE_ATB', 'width': '50px','cellRenderer': 'markdown','width': '30px'}
+                        ],
+                        dashGridOptions={
+                            "loadingOverlayComponent": "CustomLoadingOverlay",
+                            "loadingOverlayComponentParams": {
+                                    "loadingMessage": "Carregando...",
+                                    
+                                },
+                            "overlayNoRowsTemplate": "Sem lotes pendentes"
+                        },
+                         dangerously_allow_code=True,
+                         columnSize="responsiveSizeToFit",
+                         style={"height": 250}
+                    )
+                ],style={'width':'400px','padding':'5px'}),
+            ]),
+            width=6 
+        ),
+        dbc.Col(# COLUNA 6º NORTE
+            html.Div([
                 dbc.Card([
                     dbc.CardBody([
                         html.H1('6º NORTE', className='titulo-card'),
@@ -42,42 +74,24 @@ layout = html.Div(children=[
                             {'headerName': 'HORARIO', 'field': 'DT_PRIM_HORARIO', 'width': '60px',},
                             {'headerName': 'ATB', 'field': 'IE_ATB', 'width': '50px','cellRenderer': 'markdown','width': '30px'}
                         ],
+                        dashGridOptions={
+                            "loadingOverlayComponent": "CustomLoadingOverlay",
+                            "loadingOverlayComponentParams": {
+                                    "loadingMessage": "Carregando...",
+                                    
+                                },
+                            "overlayNoRowsTemplate": "Sem lotes pendentes"
+                        },
                          dangerously_allow_code=True,
                          columnSize="responsiveSizeToFit",
+                         style={"height": 250}
                     )
                 ],style={'width':'400px','padding':'5px'}),
             ]),
             width=6 
         ),
-        dbc.Col(
+        dbc.Col( #COLUNA 7º NORTE
             html.Div([
-                # Card 6º NORTE
-                dbc.Card([
-                    dbc.CardBody([
-                        html.H1('6º SUL', className='titulo-card'),
-                        html.Div(id='lotes-6sul', className='dados-card')
-                    ])
-                ], className='card'),
-
-                html.Div([
-                    AgGrid(
-                        id='tabela-6sul',
-                        columnDefs=[
-                            {'headerName': 'LEITO', 'field': 'DS_LEITO', 'width': '50px','headerClass': 'ag-header-cell-label','suppressStickyLabel': True},
-                            {'headerName': 'LOTE', 'field': 'NR_SEQUENCIA', 'width': '50px',},
-                            {'headerName': 'HORARIO', 'field': 'DT_PRIM_HORARIO', 'width': '60px',},
-                            {'headerName': 'ATB', 'field': 'IE_ATB', 'width': '50px','cellRenderer': 'markdown','width': '30px'}
-                        ],
-                         dangerously_allow_code=True,
-                         columnSize="responsiveSizeToFit",
-                    )
-                ],style={'width':'400px','padding':'5px'}),
-            ]),
-            width=6 
-        ),
-        dbc.Col(
-            html.Div([
-                # Card 6º NORTE
                 dbc.Card([
                     dbc.CardBody([
                         html.H1('7º NORTE', className='titulo-card'),
@@ -94,24 +108,100 @@ layout = html.Div(children=[
                             {'headerName': 'HORARIO', 'field': 'DT_PRIM_HORARIO', 'width': '60px',},
                             {'headerName': 'ATB', 'field': 'IE_ATB', 'width': '50px','cellRenderer': 'markdown','width': '30px'}
                         ],
+                        dashGridOptions={
+                            "loadingOverlayComponent": "CustomLoadingOverlay",
+                            "loadingOverlayComponentParams": {
+                                    "loadingMessage": "Carregando...",
+                                    
+                                },
+                            "overlayNoRowsTemplate": "Sem lotes pendentes"
+                        },
                          dangerously_allow_code=True,
                          columnSize="responsiveSizeToFit",
+                         style={"height": 250}
                     )
                 ],style={'width':'400px','padding':'5px'}),
             ]),
             width=6 
         ),
-        dbc.Col(
+    ],style={'display':'flex'}),
+
+    dbc.Row([
+        dbc.Col([ #COLUNA 5º SUL
             html.Div([
-                # Card 6º NORTE
+                dbc.Card([
+                    dbc.CardBody([
+                        html.H1('5º SUL', className='titulo-card'),
+                        html.Div(id='lotes-5sul', className='dados-card')
+                    ])
+                ], className='card'),
+            html.Div([
+                    AgGrid(
+                        id='tabela-5sul',
+                        columnDefs=[
+                            {'headerName': 'LEITO', 'field': 'DS_LEITO', 'width': '50px','headerClass': 'ag-header-cell-label','suppressStickyLabel': True},
+                            {'headerName': 'LOTE', 'field': 'NR_SEQUENCIA', 'width': '50px',},
+                            {'headerName': 'HORARIO', 'field': 'DT_PRIM_HORARIO', 'width': '60px',},
+                            {'headerName': 'ATB', 'field': 'IE_ATB', 'width': '50px','cellRenderer': 'markdown','width': '30px'}
+                        ],
+                        dashGridOptions={
+                            "loadingOverlayComponent": "CustomLoadingOverlay",
+                            "loadingOverlayComponentParams": {
+                                    "loadingMessage": "Carregando...",
+                                    
+                                },
+                            "overlayNoRowsTemplate": "Sem lotes pendentes"
+                        },
+                         dangerously_allow_code=True,
+                         columnSize="responsiveSizeToFit",
+                         className="ag-theme-alpine color-fonts",
+                         style={"height": 250}
+                    )
+                ],style={'width':'400px','padding':'5px'}),
+            ]),
+        ]),
+        dbc.Col([ #COLUNA 6º SUL
+            html.Div([
+                dbc.Card([
+                    dbc.CardBody([
+                        html.H1('6º SUL', className='titulo-card'),
+                        html.Div(id='lotes-6sul', className='dados-card')
+                    ])
+                ], className='card'),
+            html.Div([
+                    AgGrid(
+                        id='tabela-6sul',
+                        columnDefs=[
+                            {'headerName': 'LEITO', 'field': 'DS_LEITO', 'width': '50px','headerClass': 'ag-header-cell-label','suppressStickyLabel': True},
+                            {'headerName': 'LOTE', 'field': 'NR_SEQUENCIA', 'width': '50px',},
+                            {'headerName': 'HORARIO', 'field': 'DT_PRIM_HORARIO', 'width': '60px',},
+                            {'headerName': 'ATB', 'field': 'IE_ATB', 'width': '50px','cellRenderer': 'markdown','width': '30px'}
+                        ],
+                        dashGridOptions={
+                            "loadingOverlayComponent": "CustomLoadingOverlay",
+                            "loadingOverlayComponentParams": {
+                                    "loadingMessage": "Carregando...",
+                                    
+                                },
+                            "overlayNoRowsTemplate": "Sem lotes pendentes"
+                        },
+                         dangerously_allow_code=True,
+                         columnSize="responsiveSizeToFit",
+                         className="ag-theme-alpine color-fonts",
+                         style={"height": 250}
+                    )
+                ],style={'width':'400px','padding':'5px'}),
+            ]),
+        ]),
+        dbc.Col([#COLUNA 7º SUL
+            html.Div([
                 dbc.Card([
                     dbc.CardBody([
                         html.H1('7º SUL', className='titulo-card'),
                         html.Div(id='lotes-7sul', className='dados-card')
                     ])
                 ], className='card'),
-
-                html.Div([
+            html.Div([
                     AgGrid(
                         id='tabela-7sul',
                         columnDefs=[
@@ -120,13 +210,22 @@ layout = html.Div(children=[
                             {'headerName': 'HORARIO', 'field': 'DT_PRIM_HORARIO', 'width': '60px',},
                             {'headerName': 'ATB', 'field': 'IE_ATB', 'width': '50px','cellRenderer': 'markdown','width': '30px'}
                         ],
+                        dashGridOptions={
+                            "loadingOverlayComponent": "CustomLoadingOverlay",
+                            "loadingOverlayComponentParams": {
+                                    "loadingMessage": "Carregando...",
+                                    
+                                },
+                            "overlayNoRowsTemplate": "Sem lotes pendentes"
+                        },
                          dangerously_allow_code=True,
                          columnSize="responsiveSizeToFit",
+                         className="ag-theme-alpine color-fonts",
+                         style={"height": 250}
                     )
                 ],style={'width':'400px','padding':'5px'}),
             ]),
-            width=6 
-        )
+        ])
     ],style={'display':'flex'}),
     dcc.Interval(
             id="interval-component-data",
@@ -136,6 +235,10 @@ layout = html.Div(children=[
 ],className='container')
 
 @callback(
+    Output('lotes-5norte','children'),
+    Output('tabela-5norte','rowData'),
+    Output('lotes-5sul','children'),
+    Output('tabela-5sul','rowData'),
     Output('lotes-6norte','children'),
     Output('tabela-6norte','rowData'),
     Output('lotes-6sul','children'),
@@ -158,9 +261,11 @@ def update_data(n_intervals):
     lotes_6sul = df_lotes[df_lotes["CD_SETOR_ATENDIMENTO"] == 112]
     lotes_7norte = df_lotes[df_lotes["CD_SETOR_ATENDIMENTO"] == 108]
     lotes_7sul = df_lotes[df_lotes["CD_SETOR_ATENDIMENTO"] == 110]
+    qt_lotes_5norte = lotes_5norte.shape[0]
+    qt_lotes_5sul = lotes_5sul.shape[0]
     qt_lotes_6norte = lotes_6norte.shape[0]
     qt_lotes_6sul = lotes_6sul.shape[0]
     qt_lotes_7norte = lotes_7norte.shape[0]
     qt_lotes_7sul = lotes_7norte.shape[0]
     #print(df)
-    return qt_lotes_6norte,lotes_6norte.to_dict('records'),qt_lotes_6sul,lotes_6sul.to_dict('records'),qt_lotes_7norte,lotes_7norte.to_dict('records'),qt_lotes_7sul,lotes_7sul.to_dict('records')
+    return qt_lotes_5norte,lotes_5norte.to_dict('records'),qt_lotes_5sul,lotes_5sul.to_dict('records'),qt_lotes_6norte,lotes_6norte.to_dict('records'),qt_lotes_6sul,lotes_6sul.to_dict('records'),qt_lotes_7norte,lotes_7norte.to_dict('records'),qt_lotes_7sul,lotes_7sul.to_dict('records')
