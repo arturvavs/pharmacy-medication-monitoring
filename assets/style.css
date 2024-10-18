@@ -33,7 +33,7 @@
 
 .card {
     width: 400px;
-    height: 140px;
+    height: 120px;
     color: white;
     background-color: #104C70;
     /* padding: 6px; */
@@ -52,7 +52,7 @@
 .dados-card {
     font-size: 60px;
     font-family: "Trebuchet MS";
-    line-height: 2.0;
+    line-height: 1.5;
     text-align: center;
 }
 
@@ -71,4 +71,8 @@
 .ag-row .ag-cell img, .ag-row .ag-cell svg {
     object-fit: contain;
     display: block;
+}
+
+.ag-theme-alpine {
+    --ag-font-size: 17px;
 }
