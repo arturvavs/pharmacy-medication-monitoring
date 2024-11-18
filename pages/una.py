@@ -61,7 +61,9 @@ layout = html.Div(children=[
                 columnSize="responsiveSizeToFit",
                 style={"height": 320}
             )
-        ],className='andar-3'),
+        ],className='andar-3')
+    ],className='up-row'),
+    html.Div([
         html.Div([
             dbc.Card([
                 html.H1('UTI NEO',className='titulo-card')
@@ -75,9 +77,7 @@ layout = html.Div(children=[
                 columnSize="responsiveSizeToFit",
                 style={"height": 320}
             )
-        ],className='andar-utineo')
-    ],className='up-row'),
-    html.Div([
+        ],className='andar-utineo'),
         html.Div([
             dbc.Card([
                 html.H1('UCINCO',className='titulo-card')
@@ -91,49 +91,7 @@ layout = html.Div(children=[
                 columnSize="responsiveSizeToFit",
                 style={"height": 320}
             )
-        ],className='andar-1'),
-        html.Div([
-            dbc.Card([
-                html.H1('5º ANDAR',className='titulo-card')
-                    ], className='card'),
-            AgGrid(
-                id='tabela-5andar',
-                columnDefs=columnDefs,
-                getRowStyle = getRowStyle,
-                dashGridOptions=dashGridOptions,
-                dangerously_allow_code=True,
-                columnSize="responsiveSizeToFit",
-                style={"height": 320}
-            )
-        ],className='andar-2'),
-        html.Div([
-            dbc.Card([
-                html.H1('6º ANDAR',className='titulo-card')
-                    ], className='card'),
-            AgGrid(
-                id='tabela-6andar',
-                columnDefs=columnDefs,
-                getRowStyle = getRowStyle,
-                dashGridOptions=dashGridOptions,
-                dangerously_allow_code=True,
-                columnSize="responsiveSizeToFit",
-                style={"height": 320}
-            )
-        ],className='andar-3'),
-        html.Div([
-            dbc.Card([
-                html.H1('7º ANDAR',className='titulo-card')
-                    ], className='card'),
-            AgGrid(
-                id='tabela-7andar',
-                columnDefs=columnDefs,
-                getRowStyle = getRowStyle,
-                dashGridOptions = dashGridOptions,
-                dangerously_allow_code=True,
-                columnSize="responsiveSizeToFit",
-                style={"height": 320}
-            )
-        ],className='andar-utineo')
+        ],className='andar-1')
     ],className='up-row'),
 
     dcc.Interval(
@@ -150,9 +108,6 @@ layout = html.Div(children=[
     Output('tabela-3andar','rowData'),
     Output('tabela-utineo','rowData'),
     Output('tabela-ucinco','rowData'),
-    Output('tabela-5andar','rowData'),
-    Output('tabela-6andar','rowData'),
-    Output('tabela-7andar','rowData'),
     Input('interval-component-data','n_intervals'),  
 )
 
@@ -166,9 +121,6 @@ def update_data(n_intervals):
     lotes_3andar = df_lotes[df_lotes["CD_SETOR_ATENDIMENTO"].isin([120,118])]
     lotes_utineo = df_lotes[df_lotes["CD_SETOR_ATENDIMENTO"] == 123]
     lotes_ucinco = df_lotes[df_lotes["CD_SETOR_ATENDIMENTO"] == 124]
-    lotes_5andar = df_lotes[df_lotes["CD_SETOR_ATENDIMENTO"].isin([107,111])]
-    lotes_6andar = df_lotes[df_lotes["CD_SETOR_ATENDIMENTO"].isin([109,112])]
-    lotes_7andar = df_lotes[df_lotes["CD_SETOR_ATENDIMENTO"].isin([108,110])]
     return (lotes_1andar.to_dict('records'),lotes_2andar.to_dict('records'),lotes_3andar.to_dict('records'),lotes_utineo.to_dict('records'),
-    lotes_ucinco.to_dict('records'),lotes_5andar.to_dict('records'),lotes_6andar.to_dict('records'),lotes_7andar.to_dict('records')
+    lotes_ucinco.to_dict('records')
     )

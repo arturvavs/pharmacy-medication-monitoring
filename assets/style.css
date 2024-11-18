@@ -135,13 +135,12 @@
     display: none;
  } */
 
-/* Add this CSS to your stylesheet */
 @keyframes blink {
-    0%, 100% { background-color: #FF5A0A; } /* Initial color */
-    50% { background-color: #FFED29; } /* Blinking color */
+    0%, 100% { background-color: #FF5A0A; }
+    50% { background-color: #FFED29; } 
 }
 
 .blinking-row {
-    animation: blink 0.05s infinite; /* 1-second interval for the blink, adjust as needed */
+    animation: blink-animation 5s infinite; /* 1-second interval for the blink, adjust as needed */
 }
 

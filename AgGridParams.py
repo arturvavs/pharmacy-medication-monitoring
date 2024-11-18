@@ -5,7 +5,7 @@ getRowStyle = {
         {
             "condition": "params.data.TEMPO_RESTANTE <= 30 ",
             "style": {
-                "animation": "blink 1s infinite",
+                "animation": "blink 2s infinite",
                 },
             },
 
@@ -21,7 +21,7 @@ getRowStyle = {
 columnDefs=[
     {'headerName': 'LEITO', 'field': 'DS_LEITO', 'width': '50px','headerClass': 'ag-header-cell-label','suppressStickyLabel': True,"autoHeight": True,"cellStyle": {'fontSize': '1.313rem'}},
     {'headerName': 'LOTE', 'field': 'NR_SEQUENCIA', 'width': '50px',"autoHeight": True,"cellStyle": {'fontSize': '1.313rem'}},
-    {'headerName': 'HORARIO', 'field': 'DT_PRIM_HORARIO', 'width': '60px',"autoHeight": True,"cellStyle": {'fontSize': '1.313rem'}},
+    {'headerName': 'ENTREGA', 'field': 'DT_ENTREGA_PREVISTA', 'width': '60px',"autoHeight": True,"cellStyle": {'fontSize': '1.313rem'}},
     {'headerName': 'ATB', 'field': 'IE_ATB', 'width': '50px','cellRenderer': 'markdown','width': '30px',"autoHeight": True},
 ]
 
