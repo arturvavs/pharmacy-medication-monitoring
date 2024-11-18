@@ -1,4 +1,4 @@
-import dash
+"""import dash
 from dash import Dash, dcc, html, callback
 from dash.dependencies import Input, Output, State
 import dash_bootstrap_components as dbc
@@ -22,7 +22,7 @@ layout = html.Div(children=[
     ),
     
     html.Div([
-        dbc.Row([#COLUNA 5º NORTE
+        dbc.Row([#COLUNA 1º ANDAR
             dbc.Col(
                 html.Div([
                     dbc.Card([
@@ -53,11 +53,11 @@ layout = html.Div(children=[
                             columnSize="responsiveSizeToFit",
                             style={"height": 300}
                         )
-                    ],style={'width':'400px','padding':'5px'}),
+                    ],style={'padding':'5px'}),
                 ]),
                 width=6 
             ),
-            dbc.Col(# COLUNA 6º NORTE
+            dbc.Col(# COLUNA 2º LESTE
                 html.Div([
                     dbc.Card([
                         dbc.CardBody([
@@ -87,11 +87,11 @@ layout = html.Div(children=[
                             columnSize="responsiveSizeToFit",
                             style={"height": 300}
                         )
-                    ],style={'width':'400px','padding':'5px'}),
+                    ],style={'padding':'5px'}),
                 ]),
                 width=6 
             ),
-            dbc.Col( #COLUNA 7º NORTE
+            dbc.Col( #COLUNA 3º LESTE
                 html.Div([
                     dbc.Card([
                         dbc.CardBody([
@@ -121,16 +121,16 @@ layout = html.Div(children=[
                             columnSize="responsiveSizeToFit",
                             style={"height": 300}
                         )
-                    ],style={'width':'400px','padding':'5px'}),
+                    ],style={'padding':'5px'}),
                 ]),
                 width=6 
             ),
         ],style={'display':'flex'})
-    ],style={'display':'flex','justify-content':'center'}),
+    ],className = 'topRow'),
 
     html.Div([
         dbc.Row([
-            dbc.Col([ #COLUNA 5º SUL
+            dbc.Col([ #COLUNA 3º OESTE
                 html.Div([
                     dbc.Card([
                         dbc.CardBody([
@@ -159,10 +159,10 @@ layout = html.Div(children=[
                             columnSize="responsiveSizeToFit",
                             style={"height": 300}
                         )
-                    ],style={'width':'400px','padding':'5px'}),
+                    ],style={'padding':'5px'}),
                 ]),
             ]),
-            dbc.Col([ #COLUNA 6º SUL
+            dbc.Col([ #COLUNA UCINCO
                 html.Div([
                     dbc.Card([
                         dbc.CardBody([
@@ -191,10 +191,10 @@ layout = html.Div(children=[
                             columnSize="responsiveSizeToFit",
                             style={"height": 300}
                         )
-                    ],style={'width':'400px','padding':'5px'}),
+                    ],style={'padding':'5px'}),
                 ]),
             ]),
-            dbc.Col([#COLUNA 7º SUL
+            dbc.Col([#COLUNA UTI NEO
                 html.Div([
                     dbc.Card([
                         dbc.CardBody([
@@ -223,11 +223,11 @@ layout = html.Div(children=[
                             columnSize="responsiveSizeToFit",
                             style={"height": 300}
                         )
-                    ],style={'width':'400px','padding':'5px'}),
+                    ],style={'padding':'5px'}),
                 ]),
             ])
         ],style={'display':'flex'}),
-    ],style={'display':'flex','justify-content':'center'}),
+    ],className= 'bottomRow'),
     dcc.Interval(
             id="interval-component-data",
             interval=10 * 1000,  # Intervalo para atualização automática da página e dos dados
@@ -269,4 +269,4 @@ def update_data(n_intervals):
     qt_lotes_ucinco = lotes_ucinco.shape[0]
     qt_lotes_utineo = lotes_ucinco.shape[0]
     #print(df)
-    return qt_lotes_1andar,lotes_1andar.to_dict('records'),qt_lotes_2leste,lotes_2leste.to_dict('records'),qt_lotes_3leste,lotes_3leste.to_dict('records'),qt_lotes_3oeste,lotes_3oeste.to_dict('records'),qt_lotes_ucinco,lotes_ucinco.to_dict('records'),qt_lotes_utineo,lotes_utineo.to_dict('records')
+    return qt_lotes_1andar,lotes_1andar.to_dict('records'),qt_lotes_2leste,lotes_2leste.to_dict('records'),qt_lotes_3leste,lotes_3leste.to_dict('records'),qt_lotes_3oeste,lotes_3oeste.to_dict('records'),qt_lotes_ucinco,lotes_ucinco.to_dict('records'),qt_lotes_utineo,lotes_utineo.to_dict('records')"""
