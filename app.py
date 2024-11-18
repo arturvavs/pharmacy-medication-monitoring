@@ -7,9 +7,7 @@ from warnings import filterwarnings
 
 filterwarnings("ignore", category=UserWarning, message='.*pandas only supports SQLAlchemy connectable.*')
 filterwarnings("ignore", category=FutureWarning, message='.*deprecated and will be removed in a future version. To read from a literal string*')
-#FONT_AWESOME = "https://use.fontawesome.com/releases/v5.10.2/css/all.css"
-app = Dash(__name__,pages_folder='pages', use_pages=True, suppress_callback_exceptions=True, external_stylesheets=['assets/styles.css'], assets_folder='assets')
-
+app = Dash(__name__,pages_folder='pages', use_pages=True, suppress_callback_exceptions=True, external_stylesheets=['assets/styles.css?v=1'], assets_folder='assets')
 
 
 

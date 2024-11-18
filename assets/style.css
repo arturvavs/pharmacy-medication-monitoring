@@ -7,9 +7,9 @@
     color: white;
   }
 .logo {
-    height: 80px;
-    width: 260px;
-    padding-left: 0.4rem;
+    height: 100%;
+    width: 17.25rem;
+    padding: 0.5rem;
 }
 .titulo {
     font-family: 'Trebuchet MS';
@@ -17,43 +17,97 @@
 
 .subtitulo {
     font-family: 'Trebuchet MS';
-    padding-right: 0.4rem;
+    padding-right: 0.5rem;
 }
-.cabecalho {
+.header {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /*padding: 0 1.25rem;*/
     border-bottom: 0.125rem solid #AAAAAA;
     box-shadow: 0 0 0.1875rem #AAAAAA, 0 0 0.125rem #AAAAAA;
     background-image: linear-gradient(290deg, rgb(38, 8, 8) 0px, rgb(120, 0, 0) 60%, rgb(161, 0, 0) 100%);
-    height: 80px;
+    height: 5.313rem;
 }
 
 .card {
-    width: 400px;
-    height: 120px;
+    width: 100%;
+    height: 6.25rem;
     color: white;
     background-color: #104C70;
-    /* padding: 6px; */
+    /* padding: 6px;  */
     margin: 5px;
     border-radius: 0.375rem;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }
 .titulo-card {
-    font-size: 25px;
+    font-size: 40px;
     font-family: "Trebuchet MS";
     line-height: 1.0;
     margin: 0;
-    padding-top: 5px;
     text-align: center;
 }
-
+.up-row{
+    display: flex;
+    flex-direction: row;
+    padding-top: 5px;
+    justify-content: center;
+}
+.andar-1{
+    width: 28rem;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 0.5rem;
+}
+.andar-2{
+    width: 28rem;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 0.5rem;
+}
+.andar-3{
+    width: 28rem;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 0.5rem;
+}
+.andar-utineo{
+    width: 28rem;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 0.5rem;
+}
 .dados-card {
     font-size: 60px;
     font-family: "Trebuchet MS";
-    line-height: 1.5;
+    line-height: 1.3;
     text-align: center;
+}
+
+.bottomRow {
+    display:'flex';
+    justify-content: 'left';
+}
+
+.topRow {
+    display:'flex';
+    justify-content: 'left';
+    width: 100vw
 }
 
 .ag-header-cell-label {
@@ -73,6 +127,20 @@
     display: block;
 }
 
-.ag-theme-alpine {
-    --ag-font-size: 17px;
+/* .ag-cell-value {
+    --ag-font-size: 1.313rem;
+} */
+
+/* .ag-body-vertical-scroll {
+    display: none;
+ } */
+
+@keyframes blink {
+    0%, 100% { background-color: #FF5A0A; }
+    50% { background-color: #FFED29; } 
 }
+
+.blinking-row {
+    animation: blink-animation 5s infinite; /* 1-second interval for the blink, adjust as needed */
+}
+
