@@ -22,10 +22,10 @@ layout = html.Div(children=[
     html.Div([
         html.Div([
             dbc.Card([
-                html.H1('1º ANDAR',className='titulo-card')
+                html.H1('5º NORTE',className='titulo-card')
                     ], className='card'),
             AgGrid(
-                id='tabela-1andar',
+                id='tabela-5norte',
                 columnDefs=columnDefs,
                 getRowStyle = getRowStyle,
                 dashGridOptions=dashGridOptions,
@@ -33,13 +33,13 @@ layout = html.Div(children=[
                 columnSize="responsiveSizeToFit",
                 style={"height": 320}
             )
-        ],className='andar-1'),
+        ],className='andar-card'),
         html.Div([
             dbc.Card([
-                html.H1('2º ANDAR',className='titulo-card')
+                html.H1('6º NORTE',className='titulo-card')
                     ], className='card'),
             AgGrid(
-                id='tabela-2andar',
+                id='tabela-6norte',
                 columnDefs=columnDefs,
                 getRowStyle = getRowStyle,
                 dashGridOptions=dashGridOptions,
@@ -47,13 +47,13 @@ layout = html.Div(children=[
                 columnSize="responsiveSizeToFit",
                 style={"height": 320}
             )
-        ],className='andar-2'),
+        ],className='andar-card'),
         html.Div([
             dbc.Card([
-                html.H1('3º ANDAR',className='titulo-card')
+                html.H1('7º NORTE',className='titulo-card')
                     ], className='card'),
             AgGrid(
-                id='tabela-3andar',
+                id='tabela-7norte',
                 columnDefs=columnDefs,
                 getRowStyle = getRowStyle,
                 dashGridOptions=dashGridOptions,
@@ -61,15 +61,15 @@ layout = html.Div(children=[
                 columnSize="responsiveSizeToFit",
                 style={"height": 320}
             )
-        ],className='andar-3')
+        ],className='andar-card')
     ],className='up-row'),
     html.Div([
         html.Div([
             dbc.Card([
-                html.H1('UTI NEO',className='titulo-card')
+                html.H1('5º SUL',className='titulo-card')
                     ], className='card'),
             AgGrid(
-                id='tabela-utineo',
+                id='tabela-5sul',
                 columnDefs=columnDefs,
                 getRowStyle = getRowStyle,
                 dashGridOptions=dashGridOptions,
@@ -77,13 +77,13 @@ layout = html.Div(children=[
                 columnSize="responsiveSizeToFit",
                 style={"height": 320}
             )
-        ],className='andar-utineo'),
+        ],className='andar-card'),
         html.Div([
             dbc.Card([
-                html.H1('UCINCO',className='titulo-card')
+                html.H1('6º SUL',className='titulo-card')
                     ], className='card'),
             AgGrid(
-                id='tabela-ucinco',
+                id='tabela-6sul',
                 columnDefs=columnDefs,
                 getRowStyle = getRowStyle,
                 dashGridOptions=dashGridOptions,
@@ -91,7 +91,21 @@ layout = html.Div(children=[
                 columnSize="responsiveSizeToFit",
                 style={"height": 320}
             )
-        ],className='andar-1')
+        ],className='andar-card'),
+        html.Div([
+            dbc.Card([
+                html.H1('7º SUL',className='titulo-card')
+                    ], className='card'),
+            AgGrid(
+                id='tabela-7sul',
+                columnDefs=columnDefs,
+                getRowStyle = getRowStyle,
+                dashGridOptions=dashGridOptions,
+                dangerously_allow_code=True,
+                columnSize="responsiveSizeToFit",
+                style={"height": 320}
+            )
+        ],className='andar-card'),
     ],className='up-row'),
 
     dcc.Interval(
@@ -103,11 +117,12 @@ layout = html.Div(children=[
 
 
 @callback(
-    Output('tabela-1andar','rowData'),
-    Output('tabela-2andar','rowData'),
-    Output('tabela-3andar','rowData'),
-    Output('tabela-utineo','rowData'),
-    Output('tabela-ucinco','rowData'),
+    Output('tabela-5norte','rowData'),
+    Output('tabela-6norte','rowData'),
+    Output('tabela-7norte','rowData'),
+    Output('tabela-5sul','rowData'),
+    Output('tabela-6sul','rowData'),
+    Output('tabela-7sul','rowData'),
     Input('interval-component-data','n_intervals'),  
 )
 
@@ -116,11 +131,12 @@ def update_data(n_intervals):
     df_lotes = database.get_data(sql)
     df_lotes['IE_ATB'] = df_lotes['IE_ATB'].apply(lambda x: atb if x == 'ATB' else ' ')
 
-    lotes_1andar = df_lotes[df_lotes["CD_SETOR_ATENDIMENTO"] == 117]
-    lotes_2andar = df_lotes[df_lotes["CD_SETOR_ATENDIMENTO"] == 327]
-    lotes_3andar = df_lotes[df_lotes["CD_SETOR_ATENDIMENTO"].isin([120,118])]
-    lotes_utineo = df_lotes[df_lotes["CD_SETOR_ATENDIMENTO"] == 123]
-    lotes_ucinco = df_lotes[df_lotes["CD_SETOR_ATENDIMENTO"] == 124]
-    return (lotes_1andar.to_dict('records'),lotes_2andar.to_dict('records'),lotes_3andar.to_dict('records'),lotes_utineo.to_dict('records'),
-    lotes_ucinco.to_dict('records')
+    lotes_5n = df_lotes[df_lotes["CD_SETOR_ATENDIMENTO"] == 107]
+    lotes_5s = df_lotes[df_lotes["CD_SETOR_ATENDIMENTO"] == 111]
+    lotes_6n = df_lotes[df_lotes["CD_SETOR_ATENDIMENTO"] == 109]
+    lotes_6s = df_lotes[df_lotes["CD_SETOR_ATENDIMENTO"] == 112]
+    lotes_7n = df_lotes[df_lotes["CD_SETOR_ATENDIMENTO"] == 108]
+    lotes_7s = df_lotes[df_lotes["CD_SETOR_ATENDIMENTO"] == 110]
+    return (lotes_5n.to_dict('records'),lotes_6n.to_dict('records'),lotes_7n.to_dict('records'),lotes_5s.to_dict('records'),
+    lotes_6s.to_dict('records'),lotes_7s.to_dict('records')
     )
