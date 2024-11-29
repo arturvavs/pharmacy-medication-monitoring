@@ -42,13 +42,27 @@
     display: flex;
     justify-content: center;
     text-align: center;
+    position: relative;
 }
 .titulo-card {
     font-size: 40px;
     font-family: "Trebuchet MS";
     line-height: 1.0;
     margin: 0;
+    margin-left: 20px;
     text-align: center;
+}
+
+.subtitulo-card {
+    font-size: 40px;
+    font-family: "Trebuchet MS";
+    line-height: 2;
+    margin: 0;
+    margin-right: 20px;
+    text-align: right;
+    align-items: end;
+    position: absolute;
+    right: 0
 }
 .up-row{
     display: flex;
@@ -57,7 +71,16 @@
     justify-content: center;
 }
 .andar-1{
-    width: 28rem;
+    width: 55rem;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 0.5rem;
+}
+.andar-card{
+    width: 55rem;
     align-items: center;
     display: flex;
     justify-content: center;
@@ -66,7 +89,7 @@
     padding: 0.5rem;
 }
 .andar-2{
-    width: 28rem;
+    width: 55rem;
     align-items: center;
     display: flex;
     justify-content: center;
@@ -75,7 +98,7 @@
     padding: 0.5rem;
 }
 .andar-3{
-    width: 28rem;
+    width: 55rem;
     align-items: center;
     display: flex;
     justify-content: center;
@@ -84,7 +107,7 @@
     padding: 0.5rem;
 }
 .andar-utineo{
-    width: 28rem;
+    width: 55rem;
     align-items: center;
     display: flex;
     justify-content: center;
@@ -113,6 +136,7 @@
 .ag-header-cell-label {
     justify-content: center;
     padding: 0;
+    width: 25px;
   }
 
 

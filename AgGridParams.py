@@ -19,15 +19,18 @@ getRowStyle = {
 }
 #DEFINIÇÃO DAS COLUNAS QUE SERÃO EXIBIDAS NO GRID, ASSIM COMO ALGUNS PARÂMETROS
 columnDefs=[
-    {'headerName': 'LEITO', 'field': 'DS_LEITO', 'width': '50px','headerClass': 'ag-header-cell-label','suppressStickyLabel': True,"autoHeight": True,"cellStyle": {'fontSize': '1.313rem'}},
-    {'headerName': 'LOTE', 'field': 'NR_SEQUENCIA', 'width': '50px',"autoHeight": True,"cellStyle": {'fontSize': '1.313rem'}},
-    {'headerName': 'ENTREGA', 'field': 'DT_ENTREGA_PREVISTA', 'width': '60px',"autoHeight": True,"cellStyle": {'fontSize': '1.313rem'}},
-    {'headerName': 'ATB', 'field': 'IE_ATB', 'width': '50px','cellRenderer': 'markdown','width': '30px',"autoHeight": True},
+    {'headerName': 'LEITO', 'field': 'DS_LEITO', 'width': '20px','suppressStickyLabel': True,"autoHeight": True,"cellStyle": {'fontSize': '1.2rem'},"resizable": False},
+    {'headerName': 'LOTE', 'field': 'NR_SEQUENCIA', 'width': '20px',"autoHeight": True,"cellStyle": {'fontSize': '1.2rem'},"resizable": False},
+    {'headerName': 'TURNO', 'field': 'DS_TURNO', 'width': '60px',"autoHeight": True,"cellStyle": {'fontSize': '1.2rem'},"resizable": False},
+    {'headerName': 'ATB', 'field': 'IE_ATB', 'width': '50px','cellRenderer': 'markdown','width': '30px',"autoHeight": True,"resizable": False},
+    #{'headerName': 'TURNO', 'field': 'DS_TURNO', 'width': '50px','width': '30px',"autoHeight": True,"cellStyle": {'fontSize': '1.313rem'}},
 ]
 
 
 dashGridOptions={
     "loadingOverlayComponent": "CustomLoadingOverlay",
     "loadingOverlayComponentParams": {"loadingMessage": "Carregando...",},
-    "overlayNoRowsTemplate": "Sem lotes pendentes"
+    "overlayNoRowsTemplate": "Sem lotes pendentes",
+    "animateRows":False
+    #"domLayout": "print"
 }
