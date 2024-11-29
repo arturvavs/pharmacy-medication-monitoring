@@ -42,13 +42,27 @@
     display: flex;
     justify-content: center;
     text-align: center;
+    position: relative;
 }
 .titulo-card {
     font-size: 40px;
     font-family: "Trebuchet MS";
     line-height: 1.0;
     margin: 0;
+    margin-left: 20px;
     text-align: center;
+}
+
+.subtitulo-card {
+    font-size: 40px;
+    font-family: "Trebuchet MS";
+    line-height: 2;
+    margin: 0;
+    margin-right: 20px;
+    text-align: right;
+    align-items: end;
+    position: absolute;
+    right: 0
 }
 .up-row{
     display: flex;
