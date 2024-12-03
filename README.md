@@ -5,5 +5,7 @@ Funcionalidades Principais:
 
 A aplicação está dividida em duas páginas, correspondentes aos diferentes setores de internação do hospital.
 Cada página exibe cards e tabelas:
+
 Cards: Apresentam informações sobre o setor específico e o número de medicações pendentes por leito.
+
 Tabelas: Exibem detalhes como o número do lote da medicação, o leito do paciente, o horário da administração da medicação e a indicação de uso de antibióticos.
