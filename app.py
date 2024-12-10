@@ -12,4 +12,4 @@ app = Dash(__name__,pages_folder='pages', use_pages=True, suppress_callback_exce
 
 
 if __name__ == '__main__':
-    app.run_server(host='0.0.0.0',port='8051',debug=True, dev_tools_ui=False)
+    app.run_server(host='0.0.0.0',port='6004',debug=True, dev_tools_ui=False)
