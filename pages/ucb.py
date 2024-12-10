@@ -52,11 +52,11 @@ layout = html.Div(children=[
         ],className='andar-card'),
         html.Div([
             dbc.Card([
-                html.H1('3º ANDAR',className='titulo-card'),
-                html.H2(className='subtitulo-card', id='qt_pendentes_3a')
+                html.H1('3º OESTE',className='titulo-card'),
+                html.H2(className='subtitulo-card', id='qt_pendentes_3oeste')
                     ], className='card'),
             AgGrid(
-                id='tabela-3andar',
+                id='tabela-3oeste',
                 columnDefs=columnDefs,
                 getRowStyle = getRowStyle,
                 dashGridOptions=dashGridOptions,
@@ -96,6 +96,21 @@ layout = html.Div(children=[
                 columnSize="responsiveSizeToFit",
                 style={"height": 320}
             )
+        ],className='andar-card'),
+        html.Div([
+            dbc.Card([
+                html.H1('3º LESTE',className='titulo-card'),
+                html.H2(className='subtitulo-card', id='qt_pendentes_3leste')
+                    ], className='card'),
+            AgGrid(
+                id='tabela-3leste',
+                columnDefs=columnDefs,
+                getRowStyle = getRowStyle,
+                dashGridOptions=dashGridOptions,
+                dangerously_allow_code=True,
+                columnSize="responsiveSizeToFit",
+                style={"height": 320}
+            )
         ],className='andar-card')
     ],className='up-row'),
 
@@ -110,14 +125,16 @@ layout = html.Div(children=[
 @callback(
     Output('tabela-1andar','rowData'),
     Output('tabela-2andar','rowData'),
-    Output('tabela-3andar','rowData'),
+    Output('tabela-3oeste','rowData'),
     Output('tabela-utineo','rowData'),
     Output('tabela-ucinco','rowData'),
+    Output('tabela-3leste','rowData'),
     Output('qt_pendentes_1a','children'),
     Output('qt_pendentes_2a','children'),
-    Output('qt_pendentes_3a','children'),
+    Output('qt_pendentes_3oeste','children'),
     Output('qt_pendentes_utineo','children'),
     Output('qt_pendentes_ucinco','children'),
+    Output('qt_pendentes_3leste','children'),
     Input('interval-component-data','n_intervals'),  
 )
 
@@ -128,16 +145,20 @@ def update_data(n_intervals):
 
     lotes_1andar = df_lotes[df_lotes["CD_SETOR_ATENDIMENTO"] == 117]
     lotes_2andar = df_lotes[df_lotes["CD_SETOR_ATENDIMENTO"] == 327]
-    lotes_3andar = df_lotes[df_lotes["CD_SETOR_ATENDIMENTO"].isin([120,118])]
+    #lotes_3andar = df_lotes[df_lotes["CD_SETOR_ATENDIMENTO"].isin([120,118])]
+    lotes_3oeste = df_lotes[df_lotes["CD_SETOR_ATENDIMENTO"] == 118]
+    lotes_3leste = df_lotes[df_lotes["CD_SETOR_ATENDIMENTO"] == 120]
     lotes_utineo = df_lotes[df_lotes["CD_SETOR_ATENDIMENTO"] == 123]
     lotes_ucinco = df_lotes[df_lotes["CD_SETOR_ATENDIMENTO"] == 124]
 
     qt_lotes_1a = df_lotes[df_lotes["CD_SETOR_ATENDIMENTO"] == 117].shape[0]
     qt_lotes_2a = df_lotes[df_lotes["CD_SETOR_ATENDIMENTO"] == 327].shape[0]
-    qt_lotes_3a = df_lotes[df_lotes["CD_SETOR_ATENDIMENTO"].isin([120,118])].shape[0]
+    #qt_lotes_3a = df_lotes[df_lotes["CD_SETOR_ATENDIMENTO"].isin([120,118])].shape[0]
+    qt_lotes_3oeste = df_lotes[df_lotes["CD_SETOR_ATENDIMENTO"] == 118].shape[0]
+    qt_lotes_3leste = df_lotes[df_lotes["CD_SETOR_ATENDIMENTO"] == 120].shape[0]
     qt_lotes_utineo = df_lotes[df_lotes["CD_SETOR_ATENDIMENTO"] == 123].shape[0]
     qt_lotes_ucinco = df_lotes[df_lotes["CD_SETOR_ATENDIMENTO"] == 124].shape[0]
 
-    return (lotes_1andar.to_dict('records'),lotes_2andar.to_dict('records'),lotes_3andar.to_dict('records'),lotes_utineo.to_dict('records'),
-    lotes_ucinco.to_dict('records'),f"[{qt_lotes_1a}]",f"[{qt_lotes_2a}]",f"[{qt_lotes_3a}]",f"[{qt_lotes_utineo}]",f"[{qt_lotes_ucinco}]"
+    return (lotes_1andar.to_dict('records'),lotes_2andar.to_dict('records'),lotes_3oeste.to_dict('records'),lotes_utineo.to_dict('records'),
+    lotes_ucinco.to_dict('records'),lotes_3leste.to_dict('records'),f"[{qt_lotes_1a}]",f"[{qt_lotes_2a}]",f"[{qt_lotes_3oeste}]",f"[{qt_lotes_utineo}]",f"[{qt_lotes_ucinco}]",f"[{qt_lotes_3leste}]"
     )
